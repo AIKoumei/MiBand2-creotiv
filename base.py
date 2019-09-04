@@ -24,7 +24,7 @@ class AuthenticationDelegate(DefaultDelegate):
     def handleNotification(self, hnd, data):
         print("[debug] handleNotification")
         print("[debug] handle", hnd)
-        print("[debug] data", str(data.encode("hex")))
+        print("[debug] data", data) 
         # Debug purposes
         if hnd == self.device._char_auth.getHandle():
             if data[:3] == b'\x10\x01\x01':
