@@ -22,6 +22,9 @@ class AuthenticationDelegate(DefaultDelegate):
         self.device = device
 
     def handleNotification(self, hnd, data):
+        print("[debug] handleNotification")
+        print("[debug] handle", hnd)
+        print("[debug] data", str(data.encode("hex")))
         # Debug purposes
         if hnd == self.device._char_auth.getHandle():
             if data[:3] == b'\x10\x01\x01':
@@ -145,6 +148,9 @@ class MiBand2(Peripheral):
         self.svc_1 = self.getServiceByUUID(UUIDS.SERVICE_MIBAND1)
         self.svc_2 = self.getServiceByUUID(UUIDS.SERVICE_MIBAND2)
         self.svc_heart = self.getServiceByUUID(UUIDS.SERVICE_HEART_RATE)
+        print("self.svc_1", self.svc_1)
+        print("self.svc_2", self.svc_2)
+        print("self.svc_heart", self.svc_heart)
 
         self._char_auth = self.svc_2.getCharacteristics(UUIDS.CHARACTERISTIC_AUTH)[0]
         self._desc_auth = self._char_auth.getDescriptors(forUUID=UUIDS.NOTIFICATION_DESCRIPTOR)[0]
