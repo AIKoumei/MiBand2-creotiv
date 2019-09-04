@@ -10,7 +10,7 @@ except ImportError:
 from bluepy.btle import Peripheral, DefaultDelegate, ADDR_TYPE_RANDOM, BTLEException
 
 
-from constants import UUIDS, AUTH_STATES, ALERT_TYPES, QUEUE_TYPES
+from .constants import UUIDS, AUTH_STATES, ALERT_TYPES, QUEUE_TYPES
 
 
 class AuthenticationDelegate(DefaultDelegate):
